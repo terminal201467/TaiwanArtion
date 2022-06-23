@@ -43,8 +43,13 @@ class MapView: UIView {
         return button
     }()
     
+    let space:UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     lazy var findButtons:UIStackView = {
-       let stackView = UIStackView(arrangedSubviews: [findExhibitionButton,findLocationButton])
+       let stackView = UIStackView(arrangedSubviews: [findExhibitionButton,findLocationButton,space])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
@@ -83,6 +88,10 @@ class MapView: UIView {
         }
         
         findExhibitionButton.snp.makeConstraints { make in
+            make.width.equalTo(92)
+            make.height.equalTo(36)
+        }
+        space.snp.makeConstraints { make in
             make.width.equalTo(92)
             make.height.equalTo(36)
         }

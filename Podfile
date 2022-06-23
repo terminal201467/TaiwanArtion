@@ -10,4 +10,5 @@ target 'TaiwanArtion' do
   pod 'SideMenu', '~> 5.0'
   pod 'Reusable'
   pod 'RxSwift', '~> 6.5'
+  pod 'R.swift'
 end

@@ -25,7 +25,7 @@ class MapViewController: UIViewController {
     }
     
     private func setNavigationBar(){
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.backgroundColor = .white
         navigationItem.titleView = mapView.findButtons
         navigationItem.rightBarButtonItem = mapView.searchBarButton
         navigationItem.leftBarButtonItem = mapView.menuBarButton
