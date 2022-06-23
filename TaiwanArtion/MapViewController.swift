@@ -20,14 +20,15 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setNavigationBar()
+        
     }
     
     private func setNavigationBar(){
-        navigationItem.titleView = 
-        self.navigationItem.rightBarButtonItem = mapView.searchBarButton
-        self.navigationItem.leftBarButtonItem = mapView.menuBarButton
+        navigationController?.navigationBar.tintColor = .white
+        navigationItem.titleView = mapView.findButtons
+        navigationItem.rightBarButtonItem = mapView.searchBarButton
+        navigationItem.leftBarButtonItem = mapView.menuBarButton
     }
     
     //MARK:-setTableView

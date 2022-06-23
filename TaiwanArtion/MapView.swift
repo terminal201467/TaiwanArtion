@@ -6,6 +6,18 @@
 //
 
 import UIKit
+import RxSwift
+import MapKit
+
+enum ButtonsName{
+    case findExhibition,findLocation
+    var text:String{
+        switch self {
+        case .findExhibition: return "尋找展覽"
+        case .findLocation:   return "尋找地點"
+        }
+    }
+}
 
 class MapView: UIView {
 
@@ -20,17 +32,28 @@ class MapView: UIView {
     }()
     
     let findExhibitionButton:UIButton = {
-       let button = UIButton()
+        let button = UIButton()
+        button.setTitle(ButtonsName.findExhibition.text, for: .normal)
         return button
     }()
     
     let findLocationButton:UIButton = {
-       let button = UIButton()
+        let button = UIButton(type: .custom)
+        button.setTitle(ButtonsName.findLocation.text, for: .normal)
         return button
     }()
     
-    let map:MapView = {
-       let mapView = MapView()
+    lazy var findButtons:UIStackView = {
+       let stackView = UIStackView(arrangedSubviews: [findExhibitionButton,findLocationButton])
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.spacing = 5
+        return stackView
+    }()
+    
+    let map:MKMapView = {
+       let mapView = MKMapView()
         return mapView
     }()
     
@@ -41,6 +64,10 @@ class MapView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
+//        addSubview(findExhibitionButton)
+//        addSubview(findLocationButton)
+        addSubview(findButtons)
         addSubview(map)
         autoLayout()
     }
@@ -50,6 +77,16 @@ class MapView: UIView {
     }
     
     private func autoLayout(){
+        findLocationButton.snp.makeConstraints { make in
+            make.width.equalTo(92)
+            make.height.equalTo(36)
+        }
+        
+        findExhibitionButton.snp.makeConstraints { make in
+            make.width.equalTo(92)
+            make.height.equalTo(36)
+        }
+        
         map.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
