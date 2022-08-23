@@ -70,8 +70,6 @@ class MapView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-//        addSubview(findExhibitionButton)
-//        addSubview(findLocationButton)
         addSubview(findButtons)
         addSubview(map)
         autoLayout()

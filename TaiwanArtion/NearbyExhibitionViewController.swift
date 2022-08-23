@@ -47,7 +47,6 @@ class NearbyExhibitionViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = .white
         self.navigationItem.leftBarButtonItem = sideMenuButton
         self.navigationItem.searchController = searchViewController
-        
     }
     
     @objc func presentMenu(){

@@ -183,6 +183,13 @@
 			name = FindExhibitionTableViewCell;
 			sourceTree = "<group>";
 		};
+		97D506242867139300EA8054 /* R.String */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = R.String;
+			sourceTree = "<group>";
+		};
 		97F409B92813CA9500527646 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +252,7 @@
 				62CD76A4280D7AB000696DBC /* ShareExhibitionViewController */,
 				62CD7694280D04EF00696DBC /* TabBarController */,
 				97F6AEA82809737F00B61974 /* Assets.xcassets */,
+				97D506242867139300EA8054 /* R.String */,
 				97F6AEAA2809737F00B61974 /* LaunchScreen.storyboard */,
 				97F6AEAD2809737F00B61974 /* Info.plist */,
 			);
@@ -271,6 +279,7 @@
 				97F6AE992809737E00B61974 /* Frameworks */,
 				97F6AE9A2809737E00B61974 /* Resources */,
 				E5823A74F2E2C07268FDD2A4 /* [CP] Embed Pods Frameworks */,
+				97D506252867144100EA8054 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -348,6 +357,25 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		97D506252867144100EA8054 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif mint list | grep -q 'R.swift'; then\n  mint run R.swift rswift generate \"$SRCROOT/R.generated.swift\"\nelse\n  echo \"error: R.swift not installed; run 'mint bootstrap' to install\"\n  return -1\nfi\n";
 		};
 		E5823A74F2E2C07268FDD2A4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
